@@ -1,5 +1,5 @@
-import { toyService } from '@/services/toy.service'
-import { store } from '@/store/store'
+import { toyService } from './toy.reducer.js'
+import { store } from '../store.js'
 import {
   SET_TOYS,
   ADD_TOY,

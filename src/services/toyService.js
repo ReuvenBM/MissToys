@@ -1,4 +1,4 @@
-import { storageService } from './storage.service.js'
+import { storageService } from './storageService.js'
 import { utilService } from './util.service.js'
 
 export const toyService = {
