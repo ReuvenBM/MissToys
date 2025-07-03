@@ -1,4 +1,4 @@
-import { toyService } from './toy.reducer.js'
+import { toyService } from '../../services/toyService.js'
 import { store } from '../store.js'
 import {
   SET_TOYS,

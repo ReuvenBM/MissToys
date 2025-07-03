@@ -18,6 +18,7 @@ function App() {
       <AppHeader />
       <main className='container'>
         <Routes>
+            <Route path="/" element ={<ToyIndex />} />
             <Route path="/toy" element={<ToyIndex />} >
               <Route path='/toy/edit/:robotId?' element={<ToyEdit />} />
             </Route>
