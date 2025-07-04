@@ -37,20 +37,20 @@ async function query(filterBy) {
   }
 }
 
-function getById(id) {
-  return storageService.get(STORAGE_KEY, id)
+function getById(toyId) {
+  return storageService.get(toyId)
 }
 
-function remove(id) {
-  return storageService.remove(STORAGE_KEY, id)
+function remove(toyId) {
+  return storageService.remove(toyId)
 }
 
 function save(toy) {
-  if (toy.id) return storageService.put(STORAGE_KEY, toy)
+  if (toy.id) return storageService.put(toy)
   else {
     toy.createdAt = Date.now()
     toy.inStock = true
-    return storageService.post(STORAGE_KEY, toy)
+    return storageService.post(toy)
   }
 }
 
