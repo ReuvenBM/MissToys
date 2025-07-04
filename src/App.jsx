@@ -9,6 +9,8 @@ import {ToyEdit} from './pages/ToyEdit'
 import {ToyDetails} from './pages/ToyDetails'
 import { toyService } from './services/toyService'
 
+import './assets/css/index.scss'
+
 
 function App() {
 

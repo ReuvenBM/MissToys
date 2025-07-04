@@ -1,0 +1,17 @@
+.toy-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    padding: 0;
+    gap: 15px;
+    list-style-type: none;
+}
+
+.toy-list .toy-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-basis: 25%;
+    padding: 10px;
+    background-color: #000000c9;
+    transition: transform 0.2s;
+}
