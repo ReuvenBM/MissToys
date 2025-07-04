@@ -8,6 +8,7 @@ import {ToyIndex} from './pages/ToyIndex'
 import {ToyEdit} from './pages/ToyEdit'
 import {ToyDetails} from './pages/ToyDetails'
 import { toyService } from './services/toyService'
+import { UserMsg } from './cmp/UserMsg'
 
 import './assets/css/index.scss'
 
@@ -28,7 +29,7 @@ function App() {
         </Routes>
       </main>
       {/* <AppFooter /> */}
-      {/* <UserMsg /> */}
+      <UserMsg />
 
 
 

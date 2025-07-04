@@ -40,6 +40,8 @@ async function put(updatedEntity) {
 async function remove(entityId) {
   const entities = await query()
   const idx = entities.findIndex(entity => entity.id === entityId)
+  console.log(entities)
+  console.log(idx)
   if (idx < 0) throw new Error(`Remove failed, cannot find toy with id: ${entityId}`)
   entities.splice(idx, 1)
   _save(entities)

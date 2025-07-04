@@ -25,6 +25,6 @@ export function ToyIndex() {
 
 
   return (
-    <ToyList toys={toys} onRemoveRobot={onRemoveToy} />
+    <ToyList toys={toys} onRemoveToy={onRemoveToy} />
   )
 }
