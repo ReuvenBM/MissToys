@@ -10,7 +10,7 @@ import {ToyDetails} from './pages/ToyDetails'
 import { toyService } from './services/toyService'
 import { UserMsg } from './cmp/UserMsg'
 
-import './assets/css/index.scss'
+
 
 
 function App() {
