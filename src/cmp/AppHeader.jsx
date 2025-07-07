@@ -9,7 +9,7 @@ export function AppHeader() {
       <section className="main-header">
         <h1>Toy App</h1>
         <NavLink to="/" className="Toys-link">Toys</NavLink>
-        <button onClick={() => navigate(-1)}>Back</button>
+        <button className='btn' onClick={() => navigate(-1)}>Back</button>
       </section>
     </header>
   )
