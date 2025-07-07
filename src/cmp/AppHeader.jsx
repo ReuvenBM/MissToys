@@ -1,7 +1,16 @@
+import { useNavigate , NavLink  } from 'react-router-dom'
+
+
+
 export function AppHeader() {
+  const navigate = useNavigate()
   return (
     <header>
-      <h1 style={{ margin: 0 }}>Toy App</h1>
+      <section className="main-header">
+        <h1>Toy App</h1>
+        <NavLink to="/" className="Toys-link">Toys</NavLink>
+        <button onClick={() => navigate(-1)}>Back</button>
+      </section>
     </header>
   )
 }
