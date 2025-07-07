@@ -17,6 +17,7 @@ async function query(filterBy) {
   try {
     let toys = await storageService.query(STORAGE_KEY)
 
+
     // סינון לפי פילטרים
     if (filterBy) {
       const { name = '', labels = [], inStock, sortBy } = filterBy
