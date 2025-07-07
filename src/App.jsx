@@ -3,6 +3,7 @@ import { useState } from "react"
 import reactLogo from "./assets/react.svg"
 import viteLogo from "/vite.svg"
 import "./App.css"
+import { Home } from "./pages/Home"
 import { AppHeader } from "./cmp/AppHeader"
 import { ToyIndex } from "./pages/ToyIndex"
 import { ToyEdit } from "./pages/ToyEdit"
@@ -18,7 +19,7 @@ function App() {
         <AppHeader />
         <main className="container">
           <Routes>
-            <Route path="/" element={<ToyIndex />} />
+            <Route path="/" element={<Home />} />
             <Route path="/toy" element={<ToyIndex />}>
               <Route path="/toy/edit/:robotId?" element={<ToyEdit />} />
             </Route>
