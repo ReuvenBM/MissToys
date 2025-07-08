@@ -1,11 +1,10 @@
-import { loadToys , removeToy } from "../store/toy/toy.action"
-import { useSelector } from 'react-redux'
-import { useEffect } from 'react'
+import { loadToys, removeToy } from "../store/toy/toy.action"
+import { useSelector } from "react-redux"
+import { useEffect } from "react"
 import { ToyList } from "../cmp/ToyList"
-import {showSuccessMsg , showErrorMsg} from '../services/event-bus.service'
-
-
-
+import { ToyFilter } from "../cmp/ToyFilter"
+import { showSuccessMsg, showErrorMsg } from "../services/event-bus.service"
+import { Link, Outlet } from 'react-router-dom'
 
 export function ToyIndex() {
   const toys = useSelector((storeState) => storeState.toyModule.toys)
@@ -16,17 +15,24 @@ export function ToyIndex() {
     loadToys()
   }, [filterBy])
 
-    async function onRemoveToy(toyId) {
-        try {
-            await removeToy(toyId)
-            showSuccessMsg('Toy removed successfully!')
-        } catch (error) {
-            showErrorMsg(`Having issues removing toy (${toyId})`)
-        }
+  async function onRemoveToy(toyId) {
+    try {
+      await removeToy(toyId)
+      showSuccessMsg("Toy removed successfully!")
+    } catch (error) {
+      showErrorMsg(`Having issues removing toy (${toyId})`)
     }
+  }
 
+  //const { model, minBatteryStatus, type } = filterBy
+  //להכניס את מה שאני רוצה לפלטר
 
   return (
-    <ToyList toys={toys} onRemoveToy={onRemoveToy} />
+    <section>
+      <ToyFilter />
+      <Link className="addToy" to='/toy/edit'>Add Toy</Link>
+      <ToyList toys={toys} onRemoveToy={onRemoveToy} />
+      <Outlet />
+    </section>
   )
 }

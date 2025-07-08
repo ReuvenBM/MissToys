@@ -7,12 +7,12 @@
 .main-content {
   flex: 1;
   padding: 20px;
-  background-color: #f5f5f5;
+  background-color: $clr3;
 }
 
 header, footer {
   background-color:$clr1;
-  color: white;
+  color: $clr3;
   padding: 10px;
   text-align: center;
 }

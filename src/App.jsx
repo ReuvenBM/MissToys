@@ -21,7 +21,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/toy" element={<ToyIndex />}>
-              <Route path="/toy/edit/:robotId?" element={<ToyEdit />} />
+              <Route path="/toy/edit/:toyId?" element={<ToyEdit />} />
             </Route>
             <Route path="/toy/:toyId" element={<ToyDetails />} />
           </Routes>
