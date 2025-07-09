@@ -19,6 +19,16 @@ export function ToyEdit() {
       loadToy()
     }
   }, [])
+  const labelOptions = [
+    "On Wheels",
+    "Box game",
+    "Art",
+    "Baby",
+    "Doll",
+    "Puzzle",
+    "Outdoor",
+    "Battery Powered",
+  ]
 
   async function loadToy() {
     try {
@@ -38,23 +48,31 @@ export function ToyEdit() {
     }
   }
 
+
+
   function handleChange({ target }) {
-    let { name: field, value, type } = target
-    if (type === "select-multiple") {
-      value = Array.from(target.selectedOptions, (opt) => opt.value)
-    } else {
-      switch (type) {
-        case "number":
-        case "range":
-          value = +value
-          break
-        case "checkbox":
-          value = target.checked
-        default:
-          break
+    const { name, value, type, checked } = target
+
+    if (name === "labels") {
+      if (type === "checkbox") {
+        setToy((prev) => {
+          const labels = checked
+            ? [...prev.labels, value]
+            : prev.labels.filter((l) => l !== value)
+          return { ...prev, labels }
+        })
+        return
       }
-      setToy((toy) => ({ ...toy, [field]: value }))
     }
+
+    const val =
+      type === "number" || type === "range"
+        ? +value
+        : type === "checkbox"
+        ? checked
+        : value
+
+    setToy((prev) => ({ ...prev, [name]: val }))
   }
 
   const { name, labels, price } = toy
@@ -70,16 +88,23 @@ export function ToyEdit() {
           Name
           <input onChange={handleChange} type="text" name="name" value={name} />
         </label>
-        <select multiple onChange={handleChange} value={labels} name="labels">
-          <option value="On Wheels">On Wheels</option>
-          <option value="Battery Powered">Battery Powered</option>
-          <option value="Doll">Doll</option>
-          <option value="Puzzle">Puzzle</option>
-          <option value="Baby">Baby</option>
-          <option value="Outdoor">Outdoor</option>
-          <option value="Box game">Box game</option>
-          <option value="Art">Art</option>
-        </select>
+
+        <fieldset>
+          <legend>Labels:</legend>
+          {labelOptions.map((label) => (
+            <label key={label}>
+              <input
+                type="checkbox"
+                name="labels"
+                value={label}
+                checked={toy.labels.includes(label)}
+                onChange={handleChange}
+              />
+              {label}
+            </label>
+          ))}
+        </fieldset>
+
         <label>
           Price
           <input
