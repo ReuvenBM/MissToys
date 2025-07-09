@@ -7,7 +7,8 @@ export const toyService = {
   remove,
   save,
   getDefaultFilter,
-  getFilterFromSearchParams
+  getFilterFromSearchParams,
+  createToy
 }
 
 const STORAGE_KEY = 'toyDB'
@@ -103,4 +104,12 @@ function _createToys() {
     ]
     utilService.saveToStorage(STORAGE_KEY, toys)
   }
+}
+
+function createToy(name = '', labels = [], price = 100) {
+    return {
+        name,
+        labels,
+        price
+    }
 }

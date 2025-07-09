@@ -11,8 +11,8 @@ export function ToyList({ toys , onRemoveToy }) {
         <li key={toy.id}>
           <ToyPreview toy={toy} />
           <section className="toy-actions">
-            <button onClick={() => onRemoveToy(toy.id)}>X</button>
-            <Link style={{ color: 'white' }} to={`/toy/edit/${toy.id}`}>Edit</Link>
+            <button className='' onClick={() => onRemoveToy(toy.id)}>X</button>
+            <Link className='' to={`/toy/edit/${toy.id}`}>Edit</Link>
           </section>
         </li>
       )}

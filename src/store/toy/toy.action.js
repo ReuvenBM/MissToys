@@ -35,6 +35,7 @@ export async function removeToy(toyId) {
 
 export async function saveToy(toyToSave) {
   try {
+    console.log(toyToSave)
     const savedToy = await toyService.save(toyToSave)
     const type = toyToSave.id ? UPDATE_TOY : ADD_TOY
     store.dispatch({ type, toy: savedToy })
