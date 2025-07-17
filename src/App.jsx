@@ -10,6 +10,8 @@ import { UserMsg } from "./cmp/UserMsg"
 import { AppFooter } from "./cmp/AppFooter"
 
 function App() {
+  console.log("גרסה חדשה 7");
+
   return (
     <section className="app">
       <Router>
